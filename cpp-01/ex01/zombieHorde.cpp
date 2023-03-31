@@ -8,9 +8,12 @@ Zombie* zombieHorde( int N, std::string name ){
     n_zombie = (Zombie *)::operator new (sizeof(Zombie)*N);
     if (!n_zombie)
         return NULL;
+    std::stringstream ss;
     for (int i = 0; i < N; i++){
-        new ((void *)&n_zombie[i]) Zombie(name + std::to_string(i + 1));
+        ss << i + 1;
+        new ((void *)&n_zombie[i]) Zombie(name + ss.str());
         n_zombie[i].announce();
+        ss.str("");
     }
     return(n_zombie);
 }
