@@ -3,13 +3,13 @@
 
 
 void Harl::complain(std::string level){
-    const std::string str[]{
+    const std::string str[] = {
         "debug",
         "info",
         "warning",
         "error"
     };
-    void (Harl::*tab[4]) (void){
+    void (Harl::*tab[4]) (void) = {
         &Harl::debug,
         &Harl::info,
         &Harl::warning,
